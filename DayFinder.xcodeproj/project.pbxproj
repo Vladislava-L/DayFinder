@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		F276D2DF25C9F3670043B141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276D2DE25C9F3670043B141 /* AppDelegate.swift */; };
 		F276D2E125C9F3670043B141 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276D2E025C9F3670043B141 /* SceneDelegate.swift */; };
-		F276D2E325C9F3670043B141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276D2E225C9F3670043B141 /* ViewController.swift */; };
 		F276D2E625C9F3670043B141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F276D2E425C9F3670043B141 /* Main.storyboard */; };
 		F276D2E825C9F36E0043B141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F276D2E725C9F36E0043B141 /* Assets.xcassets */; };
 		F276D2EB25C9F36E0043B141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F276D2E925C9F36E0043B141 /* LaunchScreen.storyboard */; };
+		F276D2FA25CA94C30043B141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276D2E225C9F3670043B141 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F276D2E325C9F3670043B141 /* ViewController.swift in Sources */,
+				F276D2FA25CA94C30043B141 /* ViewController.swift in Sources */,
 				F276D2DF25C9F3670043B141 /* AppDelegate.swift in Sources */,
 				F276D2E125C9F3670043B141 /* SceneDelegate.swift in Sources */,
 			);
@@ -289,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AU4H5UYR6V;
 				INFOPLIST_FILE = DayFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +297,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lv.accenture.bootcamp.DayFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AU4H5UYR6V;
 				INFOPLIST_FILE = DayFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lv.accenture.bootcamp.DayFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
