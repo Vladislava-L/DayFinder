@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func findWeekdayTapped(_ sender: Any) {
-        print("find!!!!!")
+        print("Find")
         
 //        calendar
         let calendar = Calendar.current
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         
         guard let day = Int(dayTextField.text!), let month = Int(monthTextField.text!), let year = Int(yearTextField.text!) else {
             //Alert
-            
+            warningPopup(withTitle: "Input Error", withMessage: "Date text field can't be empty.")
             return
         }
         
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         
         //DateFormatter()
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "lv_LV")
+        dateFormatter.locale = Locale(identifier: "en_EN")
         dateFormatter.dateFormat = "EEEE"
         
         switch findButton.titleLabel?.text{
@@ -64,12 +64,13 @@ class ViewController: UIViewController {
                 resultLabel.text = capitalizedWeekday
             } else {
                 //alert
+                warningPopup(withTitle: "Wrong Date!", withMessage: "Please enter the correct Date.")
             }
         default:
             findButton.setTitle("Find", for: .normal)
-        
+            clearAllTextFields()
         }
-
+       
     }
     
     func clearAllTextFields(){
@@ -78,5 +79,36 @@ class ViewController: UIViewController {
         yearTextField.text = ""
         resultLabel.text = "Day of the week, inside your finder"
     }
-}
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    func warningPopup(withTitle title: String?, withMessage message: String?){
+        DispatchQueue.main.async {
+            let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            popUp.addAction(okButton)
+         
+            self.present(popUp, animated: true, completion: nil)
+        }
+    }
+    
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "dayFinder"{
+        // Get the new view controller using segue.destination.
+            let vc = segue.destination as! AppinfoViewController
+        // Pass the selected object to the new view controller.
+            vc.infoText = "DayFinder helps to find exact weekday for given date."
+        }
+    }
+    
+    
+} //end of class
 

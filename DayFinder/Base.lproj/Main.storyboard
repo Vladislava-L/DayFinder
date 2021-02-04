@@ -155,7 +155,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="info" catalog="system" id="pz2-FI-NZP">
                             <color key="tintColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="rl0-cU-afR" kind="show" id="T1w-lT-lyf"/>
+                                <segue destination="rl0-cU-afR" kind="show" identifier="dayFinder" id="T1w-lT-lyf"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="moon.circle.fill" catalog="system" id="4tX-b2-lnV">
@@ -177,26 +177,55 @@
             </objects>
             <point key="canvasLocation" x="5327.1999999999998" y="76.911544227886068"/>
         </scene>
-        <!--View Controller-->
+        <!--Appinfo View Controller-->
         <scene sceneID="jZ7-qV-9mO">
             <objects>
-                <viewController id="rl0-cU-afR" sceneMemberID="viewController">
+                <viewController id="rl0-cU-afR" customClass="AppinfoViewController" customModule="DayFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="evv-zA-qvr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-03-n9u">
+                                <rect key="frame" x="52" y="251" width="271" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxd-kJ-hVt">
+                                <rect key="frame" x="144" y="441" width="87.5" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="fEj-Lf-8Ut"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Q0c-S1-MW2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b5s-03-n9u" firstAttribute="leading" secondItem="Q0c-S1-MW2" secondAttribute="leading" constant="52" id="EP3-bc-e8g"/>
+                            <constraint firstItem="Q0c-S1-MW2" firstAttribute="bottom" secondItem="Uxd-kJ-hVt" secondAttribute="bottom" constant="60" id="SQv-Q7-7Vn"/>
+                            <constraint firstItem="b5s-03-n9u" firstAttribute="centerX" secondItem="Uxd-kJ-hVt" secondAttribute="centerX" id="VHH-ar-RIV"/>
+                            <constraint firstItem="Uxd-kJ-hVt" firstAttribute="centerX" secondItem="evv-zA-qvr" secondAttribute="centerX" id="WYh-Ob-4kx"/>
+                            <constraint firstItem="b5s-03-n9u" firstAttribute="top" secondItem="Q0c-S1-MW2" secondAttribute="top" constant="251" id="q3O-Eh-Oul"/>
+                            <constraint firstItem="b5s-03-n9u" firstAttribute="centerY" secondItem="evv-zA-qvr" secondAttribute="centerY" id="ykm-x8-95Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pNF-fL-Edb"/>
+                    <connections>
+                        <outlet property="appDescriptionLabel" destination="Uxd-kJ-hVt" id="4aL-R1-d0w"/>
+                        <outlet property="appInfoLabel" destination="b5s-03-n9u" id="vJC-Ry-beF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyW-3R-tBS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3449" y="824"/>
+            <point key="canvasLocation" x="5327.1999999999998" y="881.10944527736137"/>
         </scene>
-        <!--View Controller-->
+        <!--Appearance View Controller-->
         <scene sceneID="J2O-Da-aey">
             <objects>
-                <viewController id="IZE-em-B2E" sceneMemberID="viewController">
+                <viewController id="IZE-em-B2E" customClass="AppearanceViewController" customModule="DayFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wUp-B2-DCn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,22 +254,39 @@
                                         <state key="normal" title="Open Settings">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="openSettingsButtonTapped:" destination="IZE-em-B2E" eventType="touchUpInside" id="u4G-9v-ivY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thu-q3-arP">
-                                <rect key="frame" x="321" y="20" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="X"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thu-q3-arP">
+                                <rect key="frame" x="304" y="56" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="multiply.square" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="IZE-em-B2E" eventType="touchUpInside" id="FLQ-ow-gNg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Yp-H9-nhg"/>
-                        <color key="backgroundColor" red="0.99116319419999999" green="0.67674356700000005" blue="0.37313359979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xXp-f8-p9y" firstAttribute="centerX" secondItem="wUp-B2-DCn" secondAttribute="centerX" id="cwc-lP-dro"/>
                             <constraint firstItem="xXp-f8-p9y" firstAttribute="centerY" secondItem="wUp-B2-DCn" secondAttribute="centerY" id="wNY-Ol-Tc6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textLabel" destination="MHd-EN-MEt" id="6Co-36-bIh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkd-d3-lO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,6 +318,7 @@
     <resources>
         <image name="info" catalog="system" width="93" height="128"/>
         <image name="moon.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="multiply.square" catalog="system" width="128" height="114"/>
         <image name="night" width="658" height="1432"/>
         <systemColor name="secondarySystemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
@@ -284,6 +331,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
